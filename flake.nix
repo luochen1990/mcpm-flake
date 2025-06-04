@@ -19,7 +19,7 @@
       in
       {
         packages = {
-          default = import ./default.nix { inherit pkgs; };
+          default = import ./nix/default.nix { inherit pkgs; lib = pkgs.lib; python3 = pkgs.python311; fetchFromGitHub = pkgs.fetchFromGitHub; callPackage = pkgs.callPackage; };
         };
 
         apps.default = flake-utils.lib.mkApp { 

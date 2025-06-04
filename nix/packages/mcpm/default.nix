@@ -1,6 +1,5 @@
 { lib
 , buildPythonApplication
-, fetchFromGitHub
 , hatchling
 , setuptools
 , wheel
@@ -35,12 +34,8 @@ buildPythonApplication rec {
   version = "1.13.1";
   format = "pyproject";
   
-  src = fetchFromGitHub {
-    owner = "luochen1990";
-    repo = "mcpm";
-    rev = "v${version}";
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; # Replace with actual hash
-  };
+  # Use local source for development
+  src = ../../..;
   
   nativeBuildInputs = [
     hatchling
